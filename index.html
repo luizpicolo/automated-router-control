@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ligar ou desligar roteador</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ligar ou desligar roteador</h1>
+  <button onclick="execute('/turnoff')">Desligar</button>
+  <button onclick="execute('/turnon')">Ligar</button>
+
+  <script>
+    function execute(turn) {
+      fetch(turn)
+        .then(response => response.text())
+        .then(data => {
+          console.log(data);
+          alert('Código executado com sucesso!');
+        })
+        .catch(error => {
+          console.error(error);
+          alert('Ocorreu um erro ao executar o código.');
+        });
+    }
+  </script>
+</body>
+</html>
