@@ -54,7 +54,7 @@ async function executePuppeteer(email) {
 
   await page.goto(url);
 
-  await page.type('input[name="pppUserName"]', '', { delay: 300 });
+  await page.$eval('input[name="pppUserName"]', (input) => input.value = '');
   await page.type('input[name="pppUserName"]', email);
   await page.click('input[name="save_apply"]');
 
